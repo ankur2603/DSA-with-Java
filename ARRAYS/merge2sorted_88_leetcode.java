@@ -5,7 +5,7 @@ class Solution {
         int idx = m + n - 1;
         int i = m - 1;
         int j = n - 1;
-        while(i >= 0 && j >= 0){
+        while(i >= 0 && j >= 0){ // starting from the end fill the largest element
 
             if(nums1[i] > nums2[j]){
                 nums1[idx--] = nums1[i--];
@@ -17,7 +17,7 @@ class Solution {
 
         }
 
-        while(j >= 0){
+        while(j >= 0){ // if there are any leftovers in nums2 fill them too
             nums1[idx--] = nums2[j--];
         }
 
