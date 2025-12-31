@@ -12,12 +12,12 @@ class Solution {
 
             char c = s.charAt(i);
 
-            if (map.containsKey(c)){
-                start = Math.max(start, map.get(c)+1);
-            }
+            if (map.containsKey(c)){ // if value repeats then window is shrinked
+                start = Math.max(start, map.get(c)+1); // math.max is use here to tackle edge cases like "abba" dry run this 
+            }                                          // and compare this with other cases u'll understand
 
-            map.put(c, i);
-            maxLen = Math.max(maxLen, i-start+1);
+            map.put(c, i); // placing the values in the map 
+            maxLen = Math.max(maxLen, i-start+1); // simply keeping a track of maximum length
         }
         return maxLen;
     }
