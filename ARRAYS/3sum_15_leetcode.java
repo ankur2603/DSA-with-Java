@@ -2,6 +2,7 @@ Link : https://leetcode.com/problems/3sum/description/
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
+        
         int n = nums.length;
         int sum = 0;
 
@@ -21,22 +22,23 @@ class Solution {
                 sum = nums[i] + nums[j] + nums[k]; 
 
                 if (sum == 0) {
+                    
                     ans.add(Arrays.asList(nums[i], nums[j], nums[k]));
 
                     // skip duplicates for j
                     while (j < k && nums[j] == nums[j + 1]) j++;
+                    
                     // skip duplicates for k
                     while (j < k && nums[k] == nums[k - 1]) k--;
 
                     j++;
                     k--;
+                    
                 }
-                else if (sum < 0) {
-                    j++;
-                }
-                else {
-                    k--;
-                }
+                    
+                else if (sum < 0) j++;
+                    
+                else k--;
             }
         }
         return ans;
