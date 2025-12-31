@@ -25,6 +25,7 @@ class Solution {
         }
             
         else{
+            
             if(n == -1) return 1/x;
             
             if(-n % 2 == 0){
