@@ -9,7 +9,7 @@ class Solution {
         int idx = n-1;
         int temp;
         
-        for(int i = n-1;i > 0;i--){ // finding the pivot
+        for(int i = n-1;i > 0;i--){ // finding the pivot starting from the right
             
             if(nums[i] > nums[i-1]){
                 
@@ -20,7 +20,7 @@ class Solution {
             }
         }
 
-        if(flag == true){
+        if(flag == true){ // there exists a pivot
             
             for(int i = n-1;i > pivot;i--){ // finding the rightmost element greater than the pivot
                 
@@ -39,7 +39,7 @@ class Solution {
             int i = pivot+1;
             int j = n-1;
             
-            while(i < j){ //reversing the array
+            while(i < j){ //reversing the right part of the array
                 
                 temp = nums[i];
                 nums[i] = nums[j];
@@ -54,7 +54,7 @@ class Solution {
             int i = 0;
             int j = n-1;
             
-            while(i < j){
+            while(i < j){ // reversing the whole array bcoz next permution is the smallest number that can be formed from the digits
                 
                 temp = nums[i];
                 nums[i] = nums[j];
