@@ -6,7 +6,7 @@ class Solution {
         int n = nums.length;
         int sum = 0;
 
-        Arrays.sort(nums);
+        Arrays.sort(nums); // sorting mostly while forming algorithms
 
         List<List<Integer>> ans = new ArrayList<>();
 
@@ -21,7 +21,7 @@ class Solution {
 
                 sum = nums[i] + nums[j] + nums[k]; 
 
-                if (sum == 0) {
+                if (sum == 0) { // favourable case
                     
                     ans.add(Arrays.asList(nums[i], nums[j], nums[k]));
 
@@ -36,9 +36,9 @@ class Solution {
                     
                 }
                     
-                else if (sum < 0) j++;
+                else if (sum < 0) j++; // sum is less than 0 so increase the value 
                     
-                else k--;
+                else k--; // sum is greater than 0 so decrease the value
             }
         }
         return ans;
