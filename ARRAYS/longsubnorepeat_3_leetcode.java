@@ -2,6 +2,7 @@ Link : https://leetcode.com/problems/longest-substring-without-repeating-charact
 
 class Solution {
     public int lengthOfLongestSubstring(String s) {
+        
         HashMap<Character, Integer>map = new HashMap<>();
 
         int start = 0;
