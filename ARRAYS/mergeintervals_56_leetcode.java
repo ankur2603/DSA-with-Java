@@ -23,6 +23,7 @@ class Solution {
                 // Merge by extending the end time
                 last[1] = Math.max(last[1], curr[1]);
             }
+                
             else {
                 // No overlap → add as a new interval
                 res.add(curr);
