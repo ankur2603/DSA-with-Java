@@ -14,9 +14,10 @@ class Solution {
                 maxs = currs;
             }
             
-            if(currs < 0){
+            if(currs < 0){ // reset should be done at the last
                 currs = 0;
-            }
+            } 
+            
         }
         return maxs;
     }
