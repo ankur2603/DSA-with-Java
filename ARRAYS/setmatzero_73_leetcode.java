@@ -25,6 +25,7 @@ class Solution {
                 }
             }
         }
+        
         for(int j = 0;j < n;j++){
             if(cflag[j] == true){
                 for(int i = 0;i < m;i++){ // fill entire row with zero
@@ -32,5 +33,6 @@ class Solution {
                 }
             }
         }
+        
     }
 }
