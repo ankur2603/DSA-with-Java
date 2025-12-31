@@ -49,7 +49,7 @@ class Solution {
                 
             }
         }
-        else{
+        else{ // the complete array is in descending order
             
             int i = 0;
             int j = n-1;
