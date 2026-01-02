@@ -5,9 +5,9 @@ import java.util.*;
 class Solution {
 
     // Stores all unique subsets
-    public static List<List<Integer>> result = new ArrayList<>();
+    public List<List<Integer>> result = new ArrayList<>();
 
-    public static void findSub(int[] nums, List<Integer> ans, int i) {
+    public void findSub(int[] nums, List<Integer> ans, int i) {
 
         // Every recursive call represents a valid subset
         // So we add a COPY of the current subset
@@ -37,9 +37,6 @@ class Solution {
 
         // Sorting is required so duplicates come together
         Arrays.sort(nums);
-
-        // Clear global result for safety
-        result.clear();
 
         // Start recursion with empty subset
         findSub(nums, new ArrayList<>(), 0);
