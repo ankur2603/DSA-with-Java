@@ -1,44 +1,26 @@
 Link : https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
 
 class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q){
 
-    // stores path from root to target node
-    public boolean getPath(TreeNode root, TreeNode n, ArrayList<TreeNode> path){
-
-        if(root == null) return false;
-
-        path.add(root);
-
-        // target found
-        if(root.val == n.val) return true;
-
-        // search in left or right subtree
-        if(getPath(root.left, n, path) || getPath(root.right, n, path)) {
-            return true;
+        // stop if root is null or matches one of the nodes
+        if(root == null || root.val == p.val || root.val == q.val){
+            return root;
         }
 
-        // backtrack if not on correct path
-        path.remove(path.size() - 1);
+        // search in left and right subtrees
+        TreeNode leftLca = lowestCommonAncestor(root.left, p, q);
+        TreeNode rightLca = lowestCommonAncestor(root.right, p, q);
 
-        return false;
-    }
-
-    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-
-        ArrayList<TreeNode> path1 = new ArrayList<>();
-        ArrayList<TreeNode> path2 = new ArrayList<>();
-
-        // build paths from root to p and q
-        getPath(root, p, path1);
-        getPath(root, q, path2);
-
-        int i = 0;
-
-        // find last common node in both paths
-        for(; i < path1.size() && i < path2.size(); i++){
-            if(path1.get(i) != path2.get(i)) break;
+        // if one side is null, answer is on the other side
+        if(rightLca == null){
+            return leftLca;
+        }
+        if(leftLca == null){
+            return rightLca;
         }
 
-        return path1.get(i - 1);
+        // both sides returned non-null → current node is LCA
+        return root;
     }
 }
