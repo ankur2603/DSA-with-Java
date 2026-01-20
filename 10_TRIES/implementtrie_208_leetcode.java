@@ -2,17 +2,20 @@ Link : https://leetcode.com/problems/implement-trie-prefix-tree/description/
 
 class Trie {
 
+    // Trie node structure
     static class Node {
-        Node[] children = new Node[26];
-        boolean isEnd;
+        Node[] children = new Node[26]; // links for 'a' to 'z'
+        boolean isEnd;                  // true if a word ends here
     }
 
-    private Node root;
+    Node root; // root of the trie (non-static)
 
+    // initialize a fresh trie
     public Trie() {
         root = new Node();
     }
-    
+
+    // inserts a word into the trie
     public void insert(String word) {
         Node curr = root;
 
@@ -24,9 +27,10 @@ class Trie {
             }
             curr = curr.children[idx];
         }
-        curr.isEnd = true;
+        curr.isEnd = true; // mark end of word
     }
-    
+
+    // checks if a complete word exists
     public boolean search(String word) {
         Node curr = root;
 
@@ -38,7 +42,8 @@ class Trie {
         }
         return curr.isEnd;
     }
-    
+
+    // checks if any word starts with given prefix
     public boolean startsWith(String prefix) {
         Node curr = root;
 
